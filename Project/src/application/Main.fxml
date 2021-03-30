@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-	
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Label layoutX="266.0" layoutY="14.0" text="Test">
+         <font>
+            <Font name="Arial" size="35.0" />
+         </font></Label>
+   </children>
 </AnchorPane>
