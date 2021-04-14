@@ -6,11 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Label layoutX="266.0" layoutY="14.0" text="Test">
+      <Label layoutX="157.0" layoutY="14.0" text="&quot;Main View&quot;">
          <font>
             <Font name="Arial" size="35.0" />
          </font></Label>
+      <Button fx:id="createEventBtn" layoutX="42.0" layoutY="200.0" mnemonicParsing="false" onAction="#toCreateEvent" prefHeight="100.0" prefWidth="100.0" text="Create Event" />
    </children>
 </AnchorPane>

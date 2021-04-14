@@ -12,24 +12,34 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class MainController {
-
+public class CreateEventController {
+	
+	@FXML
+	private TextField eventName;
+	@FXML
+	private TextField eventType;
+	@FXML
+	private Button submitEventBtn;
+	@FXML
+	private TextField eventDate;
 	@FXML
 	private AnchorPane mainPane;
 	
+	
 	/*
-	 * 		Name:	toCreateEvent()
-	 * 	Function:	Will go to the CreateEvent view in this project
+	 * 		Name:	backHome()
+	 * 	Function:	Will return to the main view of this project
 	 * 	   Param:	ActionEvent event
 	 * 	  Return:	n/a
 	 */
 	@FXML
-	public void toCreateEvent(ActionEvent event) throws IOException {
-		mainPane = FXMLLoader.load(getClass().getResource("CreateEvent.fxml"));
+	void backHome(ActionEvent event) throws IOException {
+		mainPane = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		Scene scene = new Scene(mainPane);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(scene);
 		window.show();
 	}
+	
 }
