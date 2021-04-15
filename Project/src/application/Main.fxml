@@ -13,5 +13,6 @@
             <Font name="Arial" size="35.0" />
          </font></Label>
       <Button fx:id="createEventBtn" layoutX="42.0" layoutY="200.0" mnemonicParsing="false" onAction="#toCreateEvent" prefHeight="100.0" prefWidth="100.0" text="Create Event" />
+      <Button fx:id="viewEventBtn" layoutX="201.0" layoutY="200.0" mnemonicParsing="false" onAction="#toViewEvent" prefHeight="100.0" prefWidth="100.0" text="View Event" />
    </children>
 </AnchorPane>

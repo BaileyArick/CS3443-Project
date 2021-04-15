@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 public class MainController {
 
 	@FXML
+    private Button createEventBtn;
+	@FXML
+    private Button viewEventBtn;
+	@FXML
 	private AnchorPane mainPane;
 	
 	/*
@@ -26,6 +30,22 @@ public class MainController {
 	@FXML
 	public void toCreateEvent(ActionEvent event) throws IOException {
 		mainPane = FXMLLoader.load(getClass().getResource("CreateEvent.fxml"));
+		Scene scene = new Scene(mainPane);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+	}
+	
+	/*
+	 * 		Name:	toViewEvent()
+	 * 	Function:	Will go to the ViewEvent view in this project
+	 * 	   Param:	ActionEvent event
+	 * 	  Return:	n/a
+	 */
+	@FXML
+	public void toViewEvent(ActionEvent event) throws IOException {
+		mainPane = FXMLLoader.load(getClass().getResource("ViewEvent.fxml"));
 		Scene scene = new Scene(mainPane);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
