@@ -37,7 +37,6 @@ public class CreateEventController {
 	@FXML
 	private AnchorPane mainPane;
 	
-	
 	/*
 	 * 		Name:	backHome()
 	 * 	Function:	Will return to the main view of this project
@@ -54,6 +53,10 @@ public class CreateEventController {
 		window.show();
 	}
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> refs/heads/Bailey
 	/*
 	 * 		Name: submitEvent()
 	 * 	Function: Will write the event data to the "events.txt" file
@@ -98,3 +101,4 @@ public class CreateEventController {
 	//
 	
 }
+
