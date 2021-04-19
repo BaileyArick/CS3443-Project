@@ -1,5 +1,8 @@
 package application;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -14,14 +17,23 @@ import javafx.stage.Stage;
 
 public class CreateEventController {
 	
+	
 	@FXML
-	private TextField eventName;
+	private TextField yearField;
 	@FXML
-	private TextField eventType;
+	private TextField monthField;
+	@FXML
+	private TextField dayField;
+	@FXML
+	private TextField timeHRField;
+	@FXML
+	private Button backBtn;
+	@FXML
+	private TextField nameField;
+	@FXML
+	private TextField timeMINField;
 	@FXML
 	private Button submitEventBtn;
-	@FXML
-	private TextField eventDate;
 	@FXML
 	private AnchorPane mainPane;
 	
@@ -41,5 +53,48 @@ public class CreateEventController {
 		window.setScene(scene);
 		window.show();
 	}
+	
+	/*
+	 * 		Name: submitEvent()
+	 * 	Function: Will write the event data to the "events.txt" file
+	 * 	   Param: ActionEvent event
+	 * 	  Return: n/a
+	 */
+	@FXML
+	void submitEvent(ActionEvent event) {
+		
+		/* Event data from textfields */
+		int month = Integer.parseInt(monthField.getText());
+		int day = Integer.parseInt(dayField.getText());
+		int year = Integer.parseInt(yearField.getText());
+		int timeHR = Integer.parseInt(timeHRField.getText());
+		int timeMIN = Integer.parseInt(timeMINField.getText());
+		String name = nameField.getText().toString();
+		File file = new File("events.txt");
+		BufferedWriter bWrite;
+		
+		/* String to be written to events.txt file */
+		String output = month + "," + day + "," + year + "," + timeHR + "," + timeMIN + "," + name;
+		
+		/* Process to write output string to file */
+		try {
+			
+			//if file doesn't exist then create it
+			if(!(file.exists())){
+				file.createNewFile();
+			}
+			
+			bWrite = new BufferedWriter(new FileWriter(file, true));
+			bWrite.write(output);
+			bWrite.newLine();
+			bWrite.close();
+			
+		} catch (IOException e) {
+			System.out.println("An error has occured");
+			e.printStackTrace();
+		}
+	}
+	
+	//
 	
 }
