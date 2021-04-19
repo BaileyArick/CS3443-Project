@@ -11,13 +11,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class CreateEventController {
 	
-	
+	@FXML
+	private RadioButton amBtn;
+	@FXML
+	private RadioButton pmBtn;
+	@FXML
+	private ToggleGroup amPM;
 	@FXML
 	private TextField yearField;
 	@FXML
@@ -69,11 +76,21 @@ public class CreateEventController {
 		int timeHR = Integer.parseInt(timeHRField.getText());
 		int timeMIN = Integer.parseInt(timeMINField.getText());
 		String name = nameField.getText().toString();
+		int amOrPm = 0;
+		
 		File file = new File("events.txt");
 		BufferedWriter bWrite;
 		
+		/* Determing AM or PM using 0 as AM and 1 as PM (AM is default) */
+		if(amPM.getSelectedToggle() == amBtn){
+			amOrPm = 0;
+		}
+		else if(amPM.getSelectedToggle() == pmBtn){
+			amOrPm = 1;
+		}
+		
 		/* String to be written to events.txt file */
-		String output = month + "," + day + "," + year + "," + timeHR + "," + timeMIN + "," + name;
+		String output = month + "," + day + "," + year + "," + timeHR + "," + timeMIN + "," + amOrPm + "," + name;
 		
 		/* Process to write output string to file */
 		try {

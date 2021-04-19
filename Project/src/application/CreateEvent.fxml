@@ -59,5 +59,11 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <RadioButton fx:id="amBtn" layoutX="251.0" layoutY="272.0" mnemonicParsing="false" selected="true" text="AM">
+         <toggleGroup>
+            <ToggleGroup fx:id="amPM" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="pmBtn" layoutX="251.0" layoutY="297.0" mnemonicParsing="false" text="PM" toggleGroup="$amPM" />
    </children>
 </AnchorPane>
