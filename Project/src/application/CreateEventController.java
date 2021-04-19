@@ -53,10 +53,6 @@ public class CreateEventController {
 		window.show();
 	}
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> refs/heads/Bailey
 	/*
 	 * 		Name: submitEvent()
 	 * 	Function: Will write the event data to the "events.txt" file
