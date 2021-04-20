@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -78,6 +79,8 @@ public class CreateEventController {
 		String name = nameField.getText().toString();
 		int amOrPm = 0;
 		
+		Alert confirmation;
+		
 		File file = new File("events.txt");
 		BufferedWriter bWrite;
 		
@@ -109,9 +112,16 @@ public class CreateEventController {
 			System.out.println("An error has occured");
 			e.printStackTrace();
 		}
+		
+		monthField.clear();
+		dayField.clear();
+		yearField.clear();
+		timeHRField.clear();
+		timeMINField.clear();
+		nameField.clear();
+		
+		
 	}
-	
-	//
 	
 }
 
