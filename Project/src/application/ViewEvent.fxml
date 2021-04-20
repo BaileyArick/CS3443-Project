@@ -14,6 +14,53 @@
          </font>
       </Label>
       <Button fx:id="backBtn" layoutX="416.0" layoutY="456.0" mnemonicParsing="false" onAction="#backHome" prefHeight="30.0" prefWidth="70.0" text="Back" />
-      <DatePicker layoutX="147.0" layoutY="93.0" prefHeight="23.0" prefWidth="207.0" />
+      <Label layoutX="69.0" layoutY="114.0" text="Month:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="157.0" text="Day:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="203.0" text="Year:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="monthField" layoutX="141.0" layoutY="115.0" promptText="Enter MM" />
+      <TextField fx:id="dayField" layoutX="141.0" layoutY="158.0" promptText="Enter DD" />
+      <TextField fx:id="yearField" layoutX="141.0" layoutY="204.0" promptText="Enter YYYY" />
+      <Button fx:id="viewBtn" layoutX="354.0" layoutY="197.0" mnemonicParsing="false" onAction="#getEvents" text="View">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="61.0" layoutY="270.0" text="Events on ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" layoutX="154.0" layoutY="266.0" prefHeight="35.0" prefWidth="149.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="event1" layoutX="97.0" layoutY="328.0" prefHeight="39.0" prefWidth="228.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="event2" layoutX="97.0" layoutY="367.0" prefHeight="39.0" prefWidth="228.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="event3" layoutX="97.0" layoutY="406.0" prefHeight="39.0" prefWidth="228.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

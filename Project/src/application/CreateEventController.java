@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import application.model.AppModel;
 
 public class CreateEventController {
 	
@@ -74,15 +75,12 @@ public class CreateEventController {
 		int month = Integer.parseInt(monthField.getText());
 		int day = Integer.parseInt(dayField.getText());
 		int year = Integer.parseInt(yearField.getText());
-		int timeHR = Integer.parseInt(timeHRField.getText());
-		int timeMIN = Integer.parseInt(timeMINField.getText());
+		int timeHr = Integer.parseInt(timeHRField.getText());
+		int timeMin = Integer.parseInt(timeMINField.getText());
 		String name = nameField.getText().toString();
 		int amOrPm = 0;
 		
-		Alert confirmation;
-		
-		File file = new File("events.txt");
-		BufferedWriter bWrite;
+		boolean status;
 		
 		/* Determing AM or PM using 0 as AM and 1 as PM (AM is default) */
 		if(amPM.getSelectedToggle() == amBtn){
@@ -92,26 +90,7 @@ public class CreateEventController {
 			amOrPm = 1;
 		}
 		
-		/* String to be written to events.txt file */
-		String output = month + "," + day + "," + year + "," + timeHR + "," + timeMIN + "," + amOrPm + "," + name;
-		
-		/* Process to write output string to file */
-		try {
-			
-			//if file doesn't exist then create it
-			if(!(file.exists())){
-				file.createNewFile();
-			}
-			
-			bWrite = new BufferedWriter(new FileWriter(file, true));
-			bWrite.write(output);
-			bWrite.newLine();
-			bWrite.close();
-			
-		} catch (IOException e) {
-			System.out.println("An error has occured");
-			e.printStackTrace();
-		}
+		status = AppModel.writeEventData(month, day, year, timeHr, timeMin, amOrPm, name);
 		
 		monthField.clear();
 		dayField.clear();
@@ -119,7 +98,6 @@ public class CreateEventController {
 		timeHRField.clear();
 		timeMINField.clear();
 		nameField.clear();
-		
 		
 	}
 	

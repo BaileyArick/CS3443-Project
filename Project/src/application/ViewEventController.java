@@ -1,24 +1,43 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import application.model.AppModel;
 
 public class ViewEventController {
 
 	@FXML
 	private AnchorPane mainPane;
+	@FXML
+    private TextField yearField;
+    @FXML
+    private TextField monthField;
+    @FXML
+    private TextField dayField;
+    @FXML
+    private Button viewBtn;
+    @FXML
+    private Label dateLabel;
+    
+    ArrayList<Integer> keys;
+    int[] months;
+	int[] days;
+	int[] years;
+	int[] timeHR;
+	int[] timeMIN;
+	int[] amOrPm;
+	String[] names;
 	
 	/*
 	 * 		Name:	backHome()
@@ -37,33 +56,57 @@ public class ViewEventController {
 	}
 	
 	/*
-	 * 		Name:	countRecords()
-	 * 	Function:	Will return the number of records in the given file
+	 * 		Name:	getEvents()
+	 * 	Function:	Retrieves the events that match the month, day, and year 
+	 * 				that the user inputed
 	 * 	   Param:	ActionEvent event
-	 * 	  Return:	int records
+	 * 	  Return:	n/a
 	 */
-	int countRecords(String fileName) {
+	 @FXML
+	 void getEvents(ActionEvent event) {
+		 
+		/* Data from textfields to search for */
+		int userMonth = Integer.parseInt(monthField.getText());
+		int userDay = Integer.parseInt(dayField.getText());
+		int userYear = Integer.parseInt(yearField.getText());
 		
-		int numRecords = 0;
-		String input;
+		String dateLookup = userMonth + "-" + userDay + "-" + userYear + ":";
+		dateLabel.setText(dateLookup);
 		
-		File file = new File("events.txt");
-		BufferedReader bRead;
+		System.out.println("Looking for events on: " + userMonth + "-" + userDay + "-" + userYear);
 		
-		try {
-			bRead = new BufferedReader(new FileReader(file));
-			
-			while((input = bRead.readLine()) != null)
+		
+		AppModel.storeDataInArrays();
+		//>>>>> AT THIS POINT: STORED ALL DATA FROM FILE INTO ARRAYS <<<<<//
+		 
+		keys = AppModel.findMatchingKeys(userMonth, userDay, userYear);
+		//>>>>> AT THIS POINT: FOUND ALL MATCHING KEYS (AKA WE HAVE FOUND THE MATCHING DATES TO THE EVENTS) <<<<<//
+		
+		
+		int i;
+		String outputString;
+		
+		System.out.println("Amount of Matches: " + keys.size());
+		System.out.println("Matches at line(s): " + keys);
+		
+		if(keys.size() == 0)
+		{
+			System.out.println("No matches");
+		}
+		else
+		{
+			for(i = 0; i < keys.size(); i++)
 			{
-				numRecords++;
+				outputString = AppModel.formatEventString(keys.get(i));
+				System.out.println(outputString);
 			}
-			bRead.close();
-			
-		} catch (IOException e) {
-			System.out.println("An error has occured");
-			e.printStackTrace();
 		}
 		
-		return numRecords;
-	}
+		//>>>>> AT THIS POINT: WE HAVE DISPLAYED THE MATCHING EVENTS <<<<<//
+
+		monthField.clear();
+		dayField.clear();
+		yearField.clear();
+		
+	 }
 }
