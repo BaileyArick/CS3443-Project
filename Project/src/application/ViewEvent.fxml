@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,31 +9,34 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewEventController">
    <children>
-      <Label layoutX="176.0" layoutY="14.0" text="View Event">
+      <Label layoutX="155.0" layoutY="14.0" text="View Events">
          <font>
-            <Font name="Arial Black" size="24.0" />
+            <Font name="Arial Black" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="backBtn" layoutX="416.0" layoutY="456.0" mnemonicParsing="false" onAction="#backHome" prefHeight="30.0" prefWidth="70.0" text="Back" />
-      <Label layoutX="69.0" layoutY="114.0" text="Month:">
+      <Button fx:id="backBtn" layoutX="416.0" layoutY="456.0" mnemonicParsing="false" onAction="#backHome" prefHeight="30.0" prefWidth="70.0" text="Back">
          <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="69.0" layoutY="157.0" text="Day:">
+            <Font size="15.0" />
+         </font></Button>
+      <Label layoutX="62.0" layoutY="80.0" text="Month:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="203.0" text="Year:">
+      <Label layoutX="233.0" layoutY="80.0" text="Day:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="monthField" layoutX="141.0" layoutY="115.0" promptText="Enter MM" />
-      <TextField fx:id="dayField" layoutX="141.0" layoutY="158.0" promptText="Enter DD" />
-      <TextField fx:id="yearField" layoutX="141.0" layoutY="204.0" promptText="Enter YYYY" />
-      <Button fx:id="viewBtn" layoutX="354.0" layoutY="197.0" mnemonicParsing="false" onAction="#getEvents" text="View">
+      <Label layoutX="386.0" layoutY="80.0" text="Year:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="monthField" layoutX="16.0" layoutY="115.0" promptText="Enter MM" />
+      <TextField fx:id="dayField" layoutX="176.0" layoutY="115.0" promptText="Enter DD" />
+      <TextField fx:id="yearField" layoutX="331.0" layoutY="115.0" promptText="Enter YYYY" />
+      <Button fx:id="viewBtn" layoutX="220.0" layoutY="174.0" mnemonicParsing="false" onAction="#getEvents" prefHeight="25.0" prefWidth="62.0" text="View">
          <font>
             <Font size="18.0" />
          </font>

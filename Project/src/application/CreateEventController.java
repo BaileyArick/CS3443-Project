@@ -80,7 +80,7 @@ public class CreateEventController {
 		String name = nameField.getText().toString();
 		int amOrPm = 0;
 		
-		boolean status;
+		boolean status = AppModel.writeEventData(month, day, year, timeHr, timeMin, amOrPm, name);
 		
 		/* Determing AM or PM using 0 as AM and 1 as PM (AM is default) */
 		if(amPM.getSelectedToggle() == amBtn){
@@ -90,7 +90,6 @@ public class CreateEventController {
 			amOrPm = 1;
 		}
 		
-		status = AppModel.writeEventData(month, day, year, timeHr, timeMin, amOrPm, name);
 		
 		monthField.clear();
 		dayField.clear();
