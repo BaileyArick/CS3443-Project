@@ -217,7 +217,21 @@ public class AppModel {
 		}
 			
 		return output;
+	}
+	
+	/*
+	 * 		Name:	formatTitleString()
+	 * 	Function:	Formats the String title that will be displayed above the events.
+	 * 	   Param:	int index
+	 * 	  Return:	String
+	 */
+	public static String formatTitleString(int index) {
 		
+		String output;
+		
+		output = "Events on: " + months[index] + "-" + days[index] + "-" + years[index];
+		
+		return output;
 	}
 	
 	

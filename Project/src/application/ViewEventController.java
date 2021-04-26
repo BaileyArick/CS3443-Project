@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -28,7 +29,7 @@ public class ViewEventController {
     @FXML
     private Button viewBtn;
     @FXML
-    private Label dateLabel;
+    private TextArea displayArea;
     
     ArrayList<Integer> keys;
     int[] months;
@@ -70,12 +71,6 @@ public class ViewEventController {
 		int userDay = Integer.parseInt(dayField.getText());
 		int userYear = Integer.parseInt(yearField.getText());
 		
-		String dateLookup = userMonth + "-" + userDay + "-" + userYear + ":";
-		dateLabel.setText(dateLookup);
-		
-		System.out.println("Looking for events on: " + userMonth + "-" + userDay + "-" + userYear);
-		
-		
 		AppModel.storeDataInArrays();
 		//>>>>> AT THIS POINT: STORED ALL DATA FROM FILE INTO ARRAYS <<<<<//
 		 
@@ -84,10 +79,9 @@ public class ViewEventController {
 		
 		
 		int i;
+		int j;
+		String titleString;
 		String outputString;
-		
-		System.out.println("Amount of Matches: " + keys.size());
-		System.out.println("Matches at line(s): " + keys);
 		
 		if(keys.size() == 0)
 		{
@@ -95,10 +89,13 @@ public class ViewEventController {
 		}
 		else
 		{
+			titleString = AppModel.formatTitleString(keys.get(0));
+			displayArea.appendText(titleString + "\n");
+			
 			for(i = 0; i < keys.size(); i++)
 			{
 				outputString = AppModel.formatEventString(keys.get(i));
-				System.out.println(outputString);
+				displayArea.appendText("\t" + outputString + "\n");
 			}
 		}
 		

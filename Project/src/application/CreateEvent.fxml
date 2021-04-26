@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreateEventController">
    <children>
-      <Label layoutX="145.0" layoutY="14.0" text="&quot;Create Event View&quot;">
+      <Label layoutX="184.0" layoutY="14.0" text="Create Event">
          <font>
             <Font size="24.0" />
          </font>
@@ -19,7 +19,7 @@
          </font>
       </Label>
       <TextField fx:id="nameField" layoutX="145.0" layoutY="109.0" promptText="Event Name" />
-      <Button fx:id="submitEventBtn" layoutX="76.0" layoutY="331.0" mnemonicParsing="false" onAction="#submitEvent" prefHeight="100.0" prefWidth="100.0" text="Submit">
+      <Button fx:id="submitEventBtn" layoutX="70.0" layoutY="334.0" mnemonicParsing="false" onAction="#submitEvent" prefHeight="50.0" prefWidth="150.0" text="Submit">
          <font>
             <Font size="18.0" />
          </font>

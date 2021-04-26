@@ -8,9 +8,9 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewEventController">
    <children>
-      <Label layoutX="154.0" layoutY="14.0" text="&quot;View Event View&quot;">
+      <Label layoutX="176.0" layoutY="14.0" text="View Event">
          <font>
-            <Font size="24.0" />
+            <Font name="Arial Black" size="24.0" />
          </font>
       </Label>
       <Button fx:id="backBtn" layoutX="416.0" layoutY="456.0" mnemonicParsing="false" onAction="#backHome" prefHeight="30.0" prefWidth="70.0" text="Back" />
@@ -37,29 +37,10 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="61.0" layoutY="270.0" text="Events on ">
+      <TextArea fx:id="displayArea" layoutX="46.0" layoutY="288.0" prefHeight="183.0" prefWidth="339.0" />
+      <Label layoutX="166.0" layoutY="261.0" text="Event List">
          <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="dateLabel" layoutX="154.0" layoutY="266.0" prefHeight="35.0" prefWidth="149.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="event1" layoutX="97.0" layoutY="328.0" prefHeight="39.0" prefWidth="228.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="event2" layoutX="97.0" layoutY="367.0" prefHeight="39.0" prefWidth="228.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="event3" layoutX="97.0" layoutY="406.0" prefHeight="39.0" prefWidth="228.0">
-         <font>
-            <Font size="18.0" />
+            <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
    </children>
