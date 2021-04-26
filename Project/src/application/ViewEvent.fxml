@@ -41,7 +41,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="displayArea" layoutX="46.0" layoutY="288.0" prefHeight="183.0" prefWidth="339.0" />
+      <TextArea fx:id="displayArea" editable="false" layoutX="46.0" layoutY="288.0" prefHeight="183.0" prefWidth="339.0" />
       <Label layoutX="166.0" layoutY="261.0" text="Event List">
          <font>
             <Font name="Arial Black" size="18.0" />
