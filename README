@@ -1,0 +1,9 @@
+Name of Project: Event Scheduler
+Name of Team: SegFaults
+Names of Members: Bailey Arick, Jonathan Sarazen, Akshvir Singh Brar
+Description: The application will store events and be able to read events based off a matching date.
+             There is a function for creating events with the required information being: month, day,
+             year, time(HR), time(MIN), and name of event. Another view will be requiring the month,
+             day, and year to search for events on that date.
+Known bugs: None at this moment.
+
