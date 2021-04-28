@@ -80,23 +80,26 @@ public class CreateEventController {
 		String name = nameField.getText().toString();
 		int amOrPm = 0;
 		
-		/* Determing AM or PM using 0 as AM and 1 as PM (AM is default) */
-		if(amPM.getSelectedToggle() == amBtn){
+		/* Checks if user inputed correct value or left fields empty */
+		if(AppModel.TestEmptyGTC(monthField.getText(), dayField.getText(), yearField.getText(), nameField.getText(), timeHRField.getText(), timeMINField.getText()) == false) {
+		
+			/* Determing AM or PM using 0 as AM and 1 as PM (AM is default) */
+			if(amPM.getSelectedToggle() == amBtn){
 			amOrPm = 0;
-		}
-		else if(amPM.getSelectedToggle() == pmBtn){
+			}
+			else if(amPM.getSelectedToggle() == pmBtn){
 			amOrPm = 1;
+			}
+		
+			boolean status = AppModel.writeEventData(month, day, year, timeHr, timeMin, amOrPm, name);
+		
+			monthField.clear();
+			dayField.clear();
+			yearField.clear();
+			timeHRField.clear();
+			timeMINField.clear();
+			nameField.clear();
 		}
-		
-		boolean status = AppModel.writeEventData(month, day, year, timeHr, timeMin, amOrPm, name);
-		
-		
-		monthField.clear();
-		dayField.clear();
-		yearField.clear();
-		timeHRField.clear();
-		timeMINField.clear();
-		nameField.clear();
 		
 	}
 	
