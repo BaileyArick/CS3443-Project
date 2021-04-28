@@ -18,6 +18,7 @@ public class AppModel {
 	static int[] amOrPm;
 	static String[] names;
 	static ArrayList<Integer> keys;
+	static ArrayList<Integer> issueKeys;
 	
 	/*
 	 * 		Name:	addEvent()
@@ -233,8 +234,6 @@ public class AppModel {
 		
 		return output;
 	}
-	
-	
 	
 	
 }
