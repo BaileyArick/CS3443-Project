@@ -7,6 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class AppModel {
 
@@ -234,7 +238,111 @@ public class AppModel {
 		return output;
 	}
 	
+	/*
+	 * 		Name:	TestItem()
+	 * 	Function:	Test the user input are not empty and then sends the strings to verify they are formatted correctly.
+	 * 	   Param:	string
+	 * 	  Return:	boolean
+	 */
+	public static boolean TestEmptyGTC(String months, String days, String years, String hours, String mins, String name) {
+		if (months.matches("") || days.matches("") || years.matches("") || hours.matches("") || mins.matches("") || name.matches("")){
+			Alert error = new Alert(AlertType.ERROR);
+			error.setTitle("Error Message");
+			error.setHeaderText("Missing Information");
+			error.setContentText("Please, Enter information in all text fields.");
+			error.show();
+			return true;
+		}
+		else if(TestNumber(months) || TestNumber(days) || TestNumber(years) || TestNumber(hours) || TestNumber(mins) || TestStrings(name)){
+			return true;
+			}
+		else if(TestRegexDate(months) || TestRegexDate(days) || TestRegexYear(years) || TestRegexDate(hours) || TestRegexDate(mins)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
+	/*
+	 * 		Name:	TestNumber()
+	 * 	Function:	Test the user input to verify input are integers.
+	 * 	   Param:	string
+	 * 	  Return:	boolean
+	 */
+	public static boolean TestNumber(String search) {//Will test if user insert a string in number box
+		try{
+			Integer.parseInt(search);
+			return false;
+		}
+		catch (NumberFormatException e) {
+			Alert error = new Alert(AlertType.ERROR);
+			error.setTitle("Error Message");
+			error.setHeaderText("Wrong Format");
+			error.setContentText("Items box only accepts item not numbers.");
+			error.show();
+			return true;
+		}
+	}
 	
+	/*
+	 * 		Name:	TestStrings()
+	 * 	Function:	Test the user input to verify input are integers.
+	 * 	   Param:	string
+	 * 	  Return:	boolean
+	 */
+	public static boolean TestStrings(String search) {
+		try{
+			Integer.parseInt(search);
+			Alert error = new Alert(AlertType.ERROR);
+			error.setTitle("Error Message");
+			error.setHeaderText("Wrong Format");
+			error.setContentText("Items box only accepts item not numbers.");
+			error.show();
+			return true;
+		}
+		catch (NumberFormatException e) {
+			return false;
+		}
+	}
+	
+	/*
+	 * 		Name:	TestRegexDate()
+	 * 	Function:	Checks if Dates or Times are within bounds.
+	 * 	   Param:	String
+	 * 	  Return:	Boolean
+	 */
+	public static boolean TestRegexDate(String key) {
+		String Regex = "[0-9]{2}";
+			if(Pattern.matches(Regex, key)){
+				return false;
+			}
+		Alert error = new Alert(AlertType.ERROR);
+		error.setTitle("Error Message");
+		error.setHeaderText("Incorrect Format");
+		error.setContentText("Sorry, that date isn't corret please enter a valid date (00 - 12).");	
+		error.show();
+		return true;
+	}
+		
+	
+	/*
+	 * 		Name:	TestRegexYear()
+	 * 	Function:	Checks if Year is within bounds.
+	 * 	   Param:	String
+	 * 	  Return:	Boolean
+	 */
+	public static boolean TestRegexYear(String key) {
+		String Regex = "[0-9]{4}";
+		if(Pattern.matches(Regex, key)){
+			return false;
+		}
+		Alert error = new Alert(AlertType.ERROR);
+		error.setTitle("Error Message");
+		error.setHeaderText("Incorrect Format");
+		error.setContentText("Sorry, that date isn't corret please enter a valid date (####).");	
+		error.show();
+		return true;
+	}
 	
 }
