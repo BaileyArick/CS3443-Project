@@ -67,11 +67,14 @@ public class ViewEventController {
 	 void getEvents(ActionEvent event) {
 		 
 		/* Data from textfields to search for */
-		int userMonth = Integer.parseInt(monthField.getText());
-		int userDay = Integer.parseInt(dayField.getText());
-		int userYear = Integer.parseInt(yearField.getText());
+		int userMonth;
+		int userDay;
+		int userYear;
 		
 		if(AppModel.TestEmptyVEC(monthField.getText(), dayField.getText(), yearField.getText()) == false){
+			userMonth = Integer.parseInt(monthField.getText());
+			userDay = Integer.parseInt(dayField.getText());
+			userYear = Integer.parseInt(yearField.getText());
 		AppModel.storeDataInArrays();
 		//>>>>> AT THIS POINT: STORED ALL DATA FROM FILE INTO ARRAYS <<<<<//
 		 
