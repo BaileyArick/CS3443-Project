@@ -240,7 +240,7 @@ public class AppModel {
 	}
 	
 	/*
-	 * 		Name:	TestItem()
+	 * 		Name:	TestEmptyGTC()
 	 * 	Function:	Test the user input are not empty and then sends the strings to verify they are formatted correctly.
 	 * 	   Param:	string
 	 * 	  Return:	boolean
@@ -258,6 +258,32 @@ public class AppModel {
 			return true;
 			}
 		else if(TestRegexDate(months) || TestRegexDate(days) || TestRegexYear(years) || TestRegexDate(hours) || TestRegexDate(mins)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/*
+	 * 		Name:	TestEmptyVEC()
+	 * 	Function:	Test the user input are not empty and then sends the strings to verify they are formatted correctly.
+	 * 	   Param:	string
+	 * 	  Return:	boolean
+	 */
+	public static boolean TestEmptyVEC(String months, String days, String years) {
+		if (months.matches("") || days.matches("") || years.matches("")){
+			Alert error = new Alert(AlertType.ERROR);
+			error.setTitle("Error Message");
+			error.setHeaderText("Missing Information");
+			error.setContentText("Please, Enter information in all text fields.");
+			error.show();
+			return true;
+		}
+		else if(TestNumber(months) || TestNumber(days) || TestNumber(years)){
+			return true;
+			}
+		else if(TestRegexDate(months) || TestRegexDate(days) || TestRegexYear(years)){
 			return true;
 		}
 		else {
@@ -298,7 +324,7 @@ public class AppModel {
 			Alert error = new Alert(AlertType.ERROR);
 			error.setTitle("Error Message");
 			error.setHeaderText("Wrong Format");
-			error.setContentText("Items box only accepts Strings type not numbers.");
+			error.setContentText("Textfield box only accepts Strings type not numbers.");
 			error.show();
 			return true;
 		}

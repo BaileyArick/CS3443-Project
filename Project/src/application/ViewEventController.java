@@ -71,6 +71,7 @@ public class ViewEventController {
 		int userDay = Integer.parseInt(dayField.getText());
 		int userYear = Integer.parseInt(yearField.getText());
 		
+		if(AppModel.TestEmptyVEC(monthField.getText(), dayField.getText(), yearField.getText()) == false){
 		AppModel.storeDataInArrays();
 		//>>>>> AT THIS POINT: STORED ALL DATA FROM FILE INTO ARRAYS <<<<<//
 		 
@@ -105,5 +106,6 @@ public class ViewEventController {
 		dayField.clear();
 		yearField.clear();
 		
-	 }
+		}
+	}
 }
