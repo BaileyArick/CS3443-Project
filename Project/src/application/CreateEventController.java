@@ -72,16 +72,26 @@ public class CreateEventController {
 	void submitEvent(ActionEvent event) {
 		
 		/* Event data from textfields */
-		int month = Integer.parseInt(monthField.getText());
-		int day = Integer.parseInt(dayField.getText());
-		int year = Integer.parseInt(yearField.getText());
-		int timeHr = Integer.parseInt(timeHRField.getText());
-		int timeMin = Integer.parseInt(timeMINField.getText());
-		String name = nameField.getText().toString();
-		int amOrPm = 0;
+		int month;
+		int day;
+		int year;
+		int timeHr;
+		int timeMin;
+		String name;
+		int amOrPm;
+		
+		
 		
 		/* Checks if user inputed correct value or left fields empty */
 		if(AppModel.TestEmptyGTC(monthField.getText(), dayField.getText(), yearField.getText(), nameField.getText(), timeHRField.getText(), timeMINField.getText()) == false) {
+			
+			month = Integer.parseInt(monthField.getText());
+			day = Integer.parseInt(dayField.getText());
+			year = Integer.parseInt(yearField.getText());
+			timeHr = Integer.parseInt(timeHRField.getText());
+			timeMin = Integer.parseInt(timeMINField.getText());
+			name = nameField.getText().toString();
+			amOrPm = 0;
 		
 			/* Determing AM or PM using 0 as AM and 1 as PM (AM is default) */
 			if(amPM.getSelectedToggle() == amBtn){
@@ -100,6 +110,8 @@ public class CreateEventController {
 			timeMINField.clear();
 			nameField.clear();
 		}
+		
+		System.out.println("Testing: There was empty fields");
 		
 	}
 	
