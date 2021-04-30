@@ -252,7 +252,7 @@ public class AppModel {
 			error.setHeaderText("Missing Information");
 			error.setContentText("Please, Enter information in all text fields.");
 			error.show();
-			return true;
+			return false;
 		}
 		else if(TestNumber(months) || TestNumber(days) || TestNumber(years) || TestNumber(hours) || TestNumber(mins) || TestStrings(name)){
 			return true;
