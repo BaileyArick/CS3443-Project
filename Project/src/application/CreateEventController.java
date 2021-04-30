@@ -83,7 +83,7 @@ public class CreateEventController {
 		
 		
 		/* Checks if user inputed correct value or left fields empty */
-		if(AppModel.TestEmptyGTC(monthField.getText(), dayField.getText(), yearField.getText(), nameField.getText(), timeHRField.getText(), timeMINField.getText()) == false) {
+		if(AppModel.TestEmptyGTC(monthField.getText(), dayField.getText(), yearField.getText(), timeHRField.getText(), timeMINField.getText(), nameField.getText()) == true) {
 			
 			month = Integer.parseInt(monthField.getText());
 			day = Integer.parseInt(dayField.getText());
@@ -110,8 +110,6 @@ public class CreateEventController {
 			timeMINField.clear();
 			nameField.clear();
 		}
-		
-		System.out.println("Testing: There was empty fields");
 		
 	}
 	

@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -67,43 +69,54 @@ public class ViewEventController {
 	 void getEvents(ActionEvent event) {
 		 
 		/* Data from textfields to search for */
-		int userMonth = Integer.parseInt(monthField.getText());
-		int userDay = Integer.parseInt(dayField.getText());
-		int userYear = Integer.parseInt(yearField.getText());
-		
-		AppModel.storeDataInArrays();
-		//>>>>> AT THIS POINT: STORED ALL DATA FROM FILE INTO ARRAYS <<<<<//
-		 
-		keys = AppModel.findMatchingKeys(userMonth, userDay, userYear);
-		//>>>>> AT THIS POINT: FOUND ALL MATCHING KEYS (AKA WE HAVE FOUND THE MATCHING DATES TO THE EVENTS) <<<<<//
-		
-		
-		int i;
-		int j;
-		String titleString;
-		String outputString;
-		
-		if(keys.size() == 0)
-		{
-			System.out.println("No matches");
-		}
-		else
-		{
-			titleString = AppModel.formatTitleString(keys.get(0));
-			displayArea.appendText(titleString + "\n");
+		int userMonth;
+		int userDay;
+		int userYear;
 			
-			for(i = 0; i < keys.size(); i++)
+		if(AppModel.TestEmptyVEC(monthField.getText(), dayField.getText(), yearField.getText()) == true){
+				
+			userMonth = Integer.parseInt(monthField.getText());
+			userDay = Integer.parseInt(dayField.getText());
+			userYear = Integer.parseInt(yearField.getText());
+				
+			AppModel.storeDataInArrays();
+			//>>>>> AT THIS POINT: STORED ALL DATA FROM FILE INTO ARRAYS <<<<<//
+			 
+			keys = AppModel.findMatchingKeys(userMonth, userDay, userYear);
+			//>>>>> AT THIS POINT: FOUND ALL MATCHING KEYS (AKA WE HAVE FOUND THE MATCHING DATES TO THE EVENTS) <<<<<//
+			
+			
+			int i;
+			int j;
+			String titleString;
+			String outputString;
+			
+			if(keys.size() == 0)
 			{
-				outputString = AppModel.formatEventString(keys.get(i));
-				displayArea.appendText("\t" + outputString + "\n");
+				Alert error = new Alert(AlertType.ERROR);
+				error.setTitle("Error Message");
+				error.setHeaderText("No Event Found");
+				error.setContentText("Sorry, that event could not be located.");	
+				error.show();
 			}
-		}
-		
-		//>>>>> AT THIS POINT: WE HAVE DISPLAYED THE MATCHING EVENTS <<<<<//
+			else
+			{
+				titleString = AppModel.formatTitleString(keys.get(0));
+				displayArea.appendText(titleString + "\n");
+				
+				for(i = 0; i < keys.size(); i++)
+				{
+					outputString = AppModel.formatEventString(keys.get(i));
+					displayArea.appendText("\t" + outputString + "\n");
+				}
+			}
+			
+			//>>>>> AT THIS POINT: WE HAVE DISPLAYED THE MATCHING EVENTS <<<<<//
 
-		monthField.clear();
-		dayField.clear();
-		yearField.clear();
-		
-	 }
+			monthField.clear();
+			dayField.clear();
+			yearField.clear();
+			
+		}
+	}
 }

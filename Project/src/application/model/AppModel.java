@@ -240,7 +240,7 @@ public class AppModel {
 	}
 	
 	/*
-	 * 		Name:	TestItem()
+	 * 		Name:	TestEmptyGTC()
 	 * 	Function:	Test the user input are not empty and then sends the strings to verify they are formatted correctly.
 	 * 	   Param:	string
 	 * 	  Return:	boolean
@@ -266,6 +266,32 @@ public class AppModel {
 	}
 	
 	/*
+	 * 		Name:	TestEmptyVEC()
+	 * 	Function:	Test the user input are not empty and then sends the strings to verify they are formatted correctly.
+	 * 	   Param:	string
+	 * 	  Return:	boolean
+	 */
+	public static boolean TestEmptyVEC(String months, String days, String years) {
+		if (months.matches("") || days.matches("") || years.matches("")){
+			Alert error = new Alert(AlertType.ERROR);
+			error.setTitle("Error Message");
+			error.setHeaderText("Missing Information");
+			error.setContentText("Please, Enter information in all text fields.");
+			error.show();
+			return false;
+		}
+		else if(TestNumber(months) || TestNumber(days) || TestNumber(years)){
+			return true;
+			}
+		else if(TestRegexDate(months) || TestRegexDate(days) || TestRegexYear(years)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/*
 	 * 		Name:	TestNumber()
 	 * 	Function:	Test the user input to verify input are integers.
 	 * 	   Param:	string
@@ -274,7 +300,7 @@ public class AppModel {
 	public static boolean TestNumber(String search) {//Will test if user insert a string in number box
 		try{
 			Integer.parseInt(search);
-			return false;
+			return true;
 		}
 		catch (NumberFormatException e) {
 			Alert error = new Alert(AlertType.ERROR);
@@ -282,7 +308,7 @@ public class AppModel {
 			error.setHeaderText("Wrong Format");
 			error.setContentText("Items box only accepts Numbers not Strings.");
 			error.show();
-			return true;
+			return false;
 		}
 	}
 	
@@ -300,10 +326,10 @@ public class AppModel {
 			error.setHeaderText("Wrong Format");
 			error.setContentText("Items box only accepts Strings type not numbers.");
 			error.show();
-			return true;
+			return false;
 		}
 		catch (NumberFormatException e) {
-			return false;
+			return true;
 		}
 	}
 	
@@ -316,14 +342,14 @@ public class AppModel {
 	public static boolean TestRegexDate(String key) {
 		String Regex = "[0-9]{2}";
 			if(Pattern.matches(Regex, key)){
-				return false;
+				return true;
 			}
 		Alert error = new Alert(AlertType.ERROR);
 		error.setTitle("Error Message");
 		error.setHeaderText("Incorrect Format");
 		error.setContentText("Sorry, that date isn't corret please enter a valid date (00 - 12).");	
 		error.show();
-		return true;
+		return false;
 	}
 		
 	
@@ -336,14 +362,14 @@ public class AppModel {
 	public static boolean TestRegexYear(String key) {
 		String Regex = "[0-9]{4}";
 		if(Pattern.matches(Regex, key)){
-			return false;
+			return true;
 		}
 		Alert error = new Alert(AlertType.ERROR);
 		error.setTitle("Error Message");
 		error.setHeaderText("Incorrect Format");
 		error.setContentText("Sorry, that date isn't corret please enter a valid date (####).");	
 		error.show();
-		return true;
+		return false;
 	}
 	
 }
