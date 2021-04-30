@@ -306,7 +306,7 @@ public class AppModel {
 			Alert error = new Alert(AlertType.ERROR);
 			error.setTitle("Error Message");
 			error.setHeaderText("Wrong Format");
-			error.setContentText("Items box only accepts Numbers not Strings.");
+			error.setContentText("Textfield box only accepts Numbers not Strings.");
 			error.show();
 			return false;
 		}
@@ -324,7 +324,7 @@ public class AppModel {
 			Alert error = new Alert(AlertType.ERROR);
 			error.setTitle("Error Message");
 			error.setHeaderText("Wrong Format");
-			error.setContentText("Items box only accepts Strings type not numbers.");
+			error.setContentText("Textfield box only accepts Strings type not numbers.");
 			error.show();
 			return false;
 		}

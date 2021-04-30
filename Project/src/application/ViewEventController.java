@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import application.model.AppModel;
@@ -84,8 +85,7 @@ public class ViewEventController {
 			 
 			keys = AppModel.findMatchingKeys(userMonth, userDay, userYear);
 			//>>>>> AT THIS POINT: FOUND ALL MATCHING KEYS (AKA WE HAVE FOUND THE MATCHING DATES TO THE EVENTS) <<<<<//
-			
-			
+      
 			int i;
 			int j;
 			String titleString;
@@ -116,7 +116,7 @@ public class ViewEventController {
 			monthField.clear();
 			dayField.clear();
 			yearField.clear();
-			
+
 		}
 	}
 }
